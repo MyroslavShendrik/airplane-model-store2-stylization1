@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import PlaneItem from './PlaneItemWOSyle'; //! без стилізації
 
 function PlanesList({ items }) {
@@ -25,12 +25,12 @@ function PlanesList({ items }) {
     );
 };
 
-// PlanesList.propTypes = {
-//     items: PropTypes.arrayOf(
-//         PropTypes.shape({
-//             id: PropTypes.string.isRequired,
-//         }),
-//     ),
-// };
+PlanesList.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+        }),
+    ),
+};
 
 export default PlanesList;
