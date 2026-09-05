@@ -41,17 +41,17 @@ export default function PlaneItem ({
 };
 
 //! Контроль типу змінних - propTypes
-Planes.propTypes = {
-  urlMain: PropTypes.string.isRequired,
-  urlPromotional: PropTypes.string.isRequired,
-  urlActual: PropTypes.string.isRequired,
-  nameBrief: PropTypes.string.isRequired,
-  nameFull: PropTypes.string.isRequired,
-  nickname: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  country: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  // price: PropTypes.number.isRequired,  //! контроль propTypes
-  description: PropTypes.string.isRequired
-};
+// Planes.propTypes = {
+//   urlMain: PropTypes.string.isRequired,
+//   urlPromotional: PropTypes.string.isRequired,
+//   urlActual: PropTypes.string.isRequired,
+//   nameBrief: PropTypes.string.isRequired,
+//   nameFull: PropTypes.string.isRequired,
+//   nickname: PropTypes.string.isRequired,
+//   year: PropTypes.number.isRequired,
+//   country: PropTypes.string.isRequired,
+//   type: PropTypes.string.isRequired,
+//   price: PropTypes.string.isRequired,
+//   // price: PropTypes.number.isRequired,  //! контроль propTypes
+//   description: PropTypes.string.isRequired
+// };
