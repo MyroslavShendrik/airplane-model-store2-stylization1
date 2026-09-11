@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import PlaneItem from './PlaneItemWOSyle'; //! без стилізації
+import PlaneItem from './PlaneItemWOStyle'; //! без стилізації
 
 function PlanesList({ items }) {
     return (
