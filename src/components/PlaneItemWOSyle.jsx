@@ -31,7 +31,12 @@ export default function PlaneItem ({
       <p>Рекламна модель:</p>
       <img src={urlPromotional} alt={nameBrief} width="300" />
       <p>Реальна модель:</p>
-      {/* <img src={urlActual} alt={nameBrief} width="600" /> */}
+      <div>
+        {urlActual.map((image) => (
+          <img src={image} alt={nameBrief} width="200" />
+       ))}
+      </div>
+
 {/*//! Зображення рендеряться з масиву */}
       
       <br />
