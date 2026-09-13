@@ -15,7 +15,19 @@ function PlanesList({ items }) {
       }}
     >
       {items.map((item) => (
-        <li key={item.id}>
+        <li
+          style={{
+            display: "grid",
+            gap: 12,
+            padding: 10,
+            // backgroundColor: '#ffdb92', // "year" до 1946
+            // backgroundColor: '#d2fdbd', // "year"  1946 - 1999
+            // backgroundColor: '#d6f1ff', // "year" від 2000
+
+            outline: "1px solid grey",
+          }}
+          key={item.id}
+        >
           <PlaneItem
             urlMain={item.url.main}
             urlPromotional={item.url.promotional}

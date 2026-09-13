@@ -1,8 +1,25 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import defaultImage from "./default.jpg"; //! Дефолтне зображення
 
+//! Стилі для текстових полів
+const textField = {
+  fontSize: "18px",
+  fontWeight: 700,
+};
 
-export default function PlaneItem ({
+//! Стилі для значень текстових полів
+const textFieldValue = {
+  fontWeight: 400,
+  fontStyle: "italic",
+};
+
+//! Стилі для заголовків зображень
+const imageTitles = {
+  textAlign: "center",
+  color: "blue",
+};
+
+export default function PlaneItem({
   urlMain = defaultImage, //! Дефолтне зображення
   urlPromotional,
   urlActual,
@@ -13,37 +30,101 @@ export default function PlaneItem ({
   country,
   type,
   price,
-  description
-})
-{
-
+  description,
+}) {
   return (
     <>
-      <h3>{nameBrief}</h3>
-      <img src={urlMain} alt={nameBrief} width="400" />
-      <p>Повна назва: {nameFull}</p>
-      <p>Тип: {type}</p>
-      <p>Прізвисько: {nickname}</p>
-      <p>Країна виробник: {country}</p>
-      <p>Рік випуску: {year}</p>
-      <p>Ціна: {price}</p>
-      <p>Опис: {description}</p>
-      <p>Рекламна модель:</p>
-      <img src={urlPromotional} alt={nameBrief} width="300" />
-      <p>Реальна модель:</p>
-      <div>
-        {urlActual.map((image) => (
-          <img src={image} alt={nameBrief} width="200" />
-       ))}
+      <h3
+        style={{
+          marginBottom: 12,
+          padding: "12px 16px",
+          fontSize: 32,
+          textAlign: "center",
+          borderRadius: 8,
+          backgroundColor: "yellow",
+          color: "blue",
+        }}
+      >
+        {nameBrief}
+      </h3>
+      <img src={urlMain} alt={nameBrief} />
+      <p style={textField}>
+        Повна назва: <span style={textFieldValue}>{nameFull}</span>
+      </p>
+      <p style={textField}>
+        Тип: <span style={textFieldValue}>{type}</span>{" "}
+      </p>
+      <p style={textField}>
+        Прізвисько: <span style={textFieldValue}>{nickname}</span>
+      </p>
+      <p style={textField}>
+        Країна виробник: <span style={textFieldValue}>{country}</span>
+      </p>
+      <p style={textField}>
+        Рік випуску: <span style={textFieldValue}>{year}</span>
+      </p>
+      <p style={textField}>
+        Ціна: <span style={textFieldValue}>{price}</span>
+      </p>
+      <p style={textField}>
+        Опис: <span style={textFieldValue}>{description}</span>
+      </p>
+      <p style={imageTitles}>Рекламна модель:</p>
+      <img src={urlPromotional} alt={nameBrief} />
+      <p style={imageTitles}>Реальна модель:</p>
+      <div
+        style={{
+          display: "flex",
+          gap: 10,
+          flexWrap: "wrap",
+          padding: "8px",
+          borderRadius: 8,
+          backgroundColor: "gray",
+        }}
+      >
+        {urlActual.map((image, index) => (
+          <img
+            style={{
+              maxWidth: "calc((100% - 10px) / 2)",
+              borderRadius: 4,
+            }}
+            key={index}
+            src={image}
+            alt={nameBrief}
+            // width="200"
+          />
+        ))}
       </div>
 
-{/*//! Зображення рендеряться з масиву */}
-      
+      {/*//! Зображення рендеряться з масиву */}
+
       <br />
-      <button type="button">Додати до кошику</button>
+      <button
+        style={{
+          width: "70%",
+          margin: "20px auto",
+          padding: "16px 32px",
+          display: "inline-block",
+          alignItems: "center",
+          fontFmily: "Franklin Gothic Medium, Arial Narrow",
+          fontWeight: 700,
+          fontSize: "1.5rem",
+          borderRadius: "12px",
+          color: "#ffffff",
+          cursor: "pointer",
+          backgroundColor: "#008080",
+          textShadow:
+            "1px 1px 2px rgba(0, 0, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.2), 4px 4px 8px rgba(0, 0, 0, 0.1)",
+          boxShadow:
+            "inset 0 0 16px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.9)",
+        }}
+        type="button"
+      >
+        Додати до кошику
+      </button>
     </>
   );
-};
+}
 
 //! Контроль типу змінних - propTypes
 PlaneItem.propTypes = {
@@ -58,5 +139,5 @@ PlaneItem.propTypes = {
   type: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   // price: PropTypes.number.isRequired,  //! контроль propTypes
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
