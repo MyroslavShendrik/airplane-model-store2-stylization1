@@ -3,7 +3,16 @@ import PropTypes from "prop-types";
 import PlaneItem from "./PlaneItemVanillaCSS.jsx"; //! ванільний CSS
 // import {color} from "../utils/getBackgroundColor.js"
 import { getBgColorBuiltInStyles, getBgColorVanillaCSS } from "../utils/getBackgroundColor.js";
+import clsx from "clsx";
 
+const className = clsx(
+  "first",
+  10,
+  undefined && "second",
+  true && "third",
+  false ? "fourth" : "fifth"
+);
+console.log("className:",className); // "first 10 third fifth" 
 //! Для визначення кольору фону картки в залежності від значення "year"
 // function getBgColorBuiltInStyles(year) {
 //   if (year < 1946) {
@@ -67,7 +76,7 @@ function PlanesList({ items }) {
           //     outline: "1px solid grey",
           //   }}
           // className="planesItem last current"
-          className={getBgColorVanillaCSS(item.info.year).join(" ")}
+          className={getBgColorVanillaCSS(item.info.year)}
           key={item.id}
         >
           <PlaneItem
