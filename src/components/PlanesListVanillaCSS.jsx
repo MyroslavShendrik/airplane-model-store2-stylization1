@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 // import PlaneItem from "./PlaneItemBuiltInStyles.jsx"; //! вбудовані стилі
-import PlaneItem from "./PlaneItemVanillaCSS.jsx" //! ванільний CSS
+import PlaneItem from "./PlaneItemVanillaCSS.jsx"; //! ванільний CSS
 // import {color} from "../utils/getBackgroundColor.js"
-import {getBgColorBuiltInStyles} from "../utils/getBackgroundColor.js"
+import { getBgColorBuiltInStyles } from "../utils/getBackgroundColor.js";
 //! Для визначення кольору фону картки в залежності від значення "year"
 // function getBgColorBuiltInStyles(year) {
 //   if (year < 1946) {
@@ -19,37 +19,46 @@ import {getBgColorBuiltInStyles} from "../utils/getBackgroundColor.js"
 //     if (year > 1999) bgColor = '#d6f1ff';
 //     return bgColor;
 // };
-
+function getBgColorVanillaCSS(year) {
+  if (year < 1946) {
+    return ["planesItem"];
+  }
+  if (year >= 1946 && year <= 1999) {
+    return ["planesItem", "last"];
+  }
+  return ["planesItem", "last", "current"];
+}
+// console.log("getBgColorVanillaCSS:",getBgColorVanillaCSS(item.info.year))
 function PlanesList({ items }) {
   return (
-    <ul 
-    //   style={{
-    //     marginLeft: 10,
-    //     marginRight: 10,
-    //     padding: 10,
-    //     display: "grid",
-    //     gridTemplateColumns: "repeat(auto-fit, minmax(445px, 1fr))",
-    //     gap: 32,
-    //     outline: "1px solid red",
-    //   }}
-    className ="planesList"
+    <ul
+      //   style={{
+      //     marginLeft: 10,
+      //     marginRight: 10,
+      //     padding: 10,
+      //     display: "grid",
+      //     gridTemplateColumns: "repeat(auto-fit, minmax(445px, 1fr))",
+      //     gap: 32,
+      //     outline: "1px solid red",
+      //   }}
+      className="planesList"
     >
       {items.map((item) => (
-        <li 
-        //   style={{
-        //     display: "grid",
-        //     gap: 12,
-        //     padding: 10,
-        //     // backgroundColor: '#ffdb92', // "year" до 1946
-        //     // backgroundColor: '#d2fdbd', // "year"  1946 - 1999
-        //     // backgroundColor: '#d6f1ff', // "year" від 2000
-        //     // backgroundColor: color(item.info.year),
-        //     backgroundColor: getBgColorBuiltInStyles(item.info.year),
+        <li
+          //   style={{
+          //     display: "grid",
+          //     gap: 12,
+          //     padding: 10,
+          //     // backgroundColor: '#ffdb92', // "year" до 1946
+          //     // backgroundColor: '#d2fdbd', // "year"  1946 - 1999
+          //     // backgroundColor: '#d6f1ff', // "year" від 2000
+          //     // backgroundColor: color(item.info.year),
+          //     backgroundColor: getBgColorBuiltInStyles(item.info.year),
 
-
-        //     outline: "1px solid grey",
-        //   }}
-        className="planesItem"
+          //     outline: "1px solid grey",
+          //   }}
+          // className="planesItem last current"
+          className={getBgColorVanillaCSS(item.info.year).join(" ")}
           key={item.id}
         >
           <PlaneItem

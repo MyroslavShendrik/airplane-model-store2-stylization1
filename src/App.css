@@ -23,8 +23,15 @@
     gap: 12px;
     padding: 10px;
     background-color: #ffdb92;
-    ;
     outline: 1px solid grey;
+}
+/** backgroundColor: '#d2fdbd', // "year"  1946 - 1999 - last */
+.planesItem.last {
+  background-color: #d2fdbd;
+}
+
+.planesItem.last.current{
+  background-color: #d6f1ff;
 }
 
 /*? PlaneItem.jsx */
