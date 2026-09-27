@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 // import PlaneItem from "./PlaneItemBuiltInStyles.jsx"; //! вбудовані стилі
 import PlaneItem from "./PlaneItemVanillaCSS.jsx"; //! ванільний CSS
 // import {color} from "../utils/getBackgroundColor.js"
-import { getBgColorBuiltInStyles } from "../utils/getBackgroundColor.js";
+import { getBgColorBuiltInStyles, getBgColorVanillaCSS } from "../utils/getBackgroundColor.js";
+
 //! Для визначення кольору фону картки в залежності від значення "year"
 // function getBgColorBuiltInStyles(year) {
 //   if (year < 1946) {
@@ -19,15 +20,23 @@ import { getBgColorBuiltInStyles } from "../utils/getBackgroundColor.js";
 //     if (year > 1999) bgColor = '#d6f1ff';
 //     return bgColor;
 // };
-function getBgColorVanillaCSS(year) {
-  if (year < 1946) {
-    return ["planesItem"];
-  }
-  if (year >= 1946 && year <= 1999) {
-    return ["planesItem", "last"];
-  }
-  return ["planesItem", "last", "current"];
-}
+// function getBgColorVanillaCSS(year) {
+//   if (year < 1946) {
+//     return ["planesItem"];
+//   }
+//   if (year >= 1946 && year <= 1999) {
+//     return ["planesItem", "last"];
+//   }
+//   return ["planesItem", "last", "current"];
+// }
+// function getBgColorVanillaCSS(year) {
+//     const classNames = ["planesItem"];
+//     if (year > 1945) classNames.push("last");
+//     if (year > 1999) classNames.push("current");
+//     console.log("classNames:", classNames); //!
+//     return classNames;
+// };
+
 // console.log("getBgColorVanillaCSS:",getBgColorVanillaCSS(item.info.year))
 function PlanesList({ items }) {
   return (

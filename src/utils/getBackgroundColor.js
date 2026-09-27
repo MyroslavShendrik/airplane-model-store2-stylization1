@@ -12,3 +12,12 @@ export function getBgColorBuiltInStyles(year) {
     if (year > 1999) bgColor = '#d6f1ff';
     return bgColor;
 };
+
+//todo: var.1
+export function getBgColorVanillaCSS(year) {
+    const classNames = ["planesItem"];
+    if (year > 1945) classNames.push("last");
+    if (year > 1999) classNames.push("current");
+    console.log("classNames:", classNames); //!
+    return classNames;
+};
